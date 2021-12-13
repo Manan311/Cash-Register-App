@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Cash Register App
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,115 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Cash Register App</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div id="container">
+    <div id="container-title" style="width: 100%; padding: 15px;">
+      <ion-label class="center">Item: {{appManagerService.selectedItem ? appManagerService.selectedItem.name : ""}}
+      </ion-label>
+      <ion-button class="right" [routerLink]="['/manager']">Manager</ion-button>
+    </div>
+
+    <div id="quant-sel">
+
+      <br />
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="handleKeypad(1)">
+              1
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="handleKeypad(2)">
+              2
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="handleKeypad(3)">
+              3
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-label>
+              Total: {{appManagerService.quantity && appManagerService.selectedItem.price ? (appManagerService.quantity * appManagerService.selectedItem.price).toFixed(2) : 0}}
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="handleKeypad(4)">
+              4
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="handleKeypad(5)">
+              5
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="handleKeypad(6)">
+              6
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button id="add" (click)="handleOrderAdd()">
+              BUY
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="handleKeypad(7)">
+              7
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="handleKeypad(8)">
+              8
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="handleKeypad(9)">
+              9
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button id="reset" (click)="appManagerService.resetQuantity()">
+              RESET
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" offset="3">
+            <ion-button (click)="handleKeypad(0)">
+              0
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div id="item-sel">
+      <div id="topping-sel">
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Quanity: {{appManagerService.quantity}}</ion-label>
+          </ion-list-header>
+          <ion-item *ngFor="let item of items" (click)="handleItem(item)">
+            <div class="fullwidth">
+              <div>
+                <ion-label class="inline">{{item.name}}</ion-label>
+                <ion-label class="inlineright">{{item.stock}}</ion-label>
+              </div>
+              <ion-label>{{item.price}}</ion-label>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+
 </ion-content>

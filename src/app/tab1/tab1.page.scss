@@ -1,0 +1,25 @@
+.fullwidth{
+    width: 100%;
+}
+.inline{
+    display: inline-block;
+    width: 80%;
+}
+
+.inlineright{
+    display: inline-block;
+    text-align: right;
+width: 20%;
+}
+
+.right{
+    float: right;
+    margin-right: 20px;
+}
+
+.center{
+    vertical-align: middle;
+    height: 100%;
+    font-size: larger;
+    font-weight: bold;
+}

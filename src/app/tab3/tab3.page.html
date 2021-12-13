@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Restock
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,21 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Restock</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div *ngFor="let itm of itmStock">
+    <ion-label class="lbl">{{itm.name}}</ion-label>
+    <ion-item class="itm">
+      <div style="width:100%">
+        <ion-button (click)="substract(itm.name, itm.stock)">-</ion-button>
+        <ion-label class="fit">{{itm.stock}}</ion-label>
+        <ion-button (click)="add(itm.name, itm.stock)">+</ion-button>
+      </div>
+      <div style="width:100%">
+        <ion-button class="right" (click)="stock(itm.name, itm.stock)">Stock</ion-button>
+      </div>
+    </ion-item>
+  </div>
 </ion-content>

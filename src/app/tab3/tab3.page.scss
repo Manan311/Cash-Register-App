@@ -1,0 +1,26 @@
+.fit{
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.right{
+    float: right;
+    align-items:flex-end;
+}
+
+.lbl{
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.itm{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}

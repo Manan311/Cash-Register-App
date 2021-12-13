@@ -5,7 +5,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "project": ["assignment3/tsconfig.json", "assignment3/e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
